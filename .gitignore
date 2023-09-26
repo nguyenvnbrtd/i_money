@@ -1,2 +1,11 @@
 build/
 .idea/vcs.xml
+.flutter-plugins
+.flutter-plugins-dependencies
+pubspec.lock
+.dart_tool/package_config.json
+.dart_tool/package_config_subset
+.dart_tool/version
+.idea/misc.xml
+.idea/libraries/Dart_Packages.xml
+.idea/libraries/Flutter_Plugins.xml
