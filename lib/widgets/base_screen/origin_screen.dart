@@ -4,18 +4,18 @@ import 'package:money_controller/core/utils/utils_helper.dart';
 
 class OriginScreen extends StatefulWidget {
   final Widget? child;
-  final PreferredSizeWidget? appbar;
-  final Widget? bottomNavigator;
-  final Future<bool> Function()? onBackPress;
   final Color backgroundColor;
+  final Widget? bottomNavigator;
+  final PreferredSizeWidget? appbar;
+  final Future<bool> Function()? onBackPress;
 
   const OriginScreen({
     Key? key,
     this.child,
     this.appbar,
-    this.bottomNavigator,
     this.onBackPress,
-    this.backgroundColor = AppColors.primary,
+    this.bottomNavigator,
+    this.backgroundColor = AppColors.white,
   }) : super(key: key);
 
   @override
@@ -29,17 +29,19 @@ class _OriginScreen extends State<OriginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-
     return WillPopScope(
-        onWillPop: widget.onBackPress ?? onBackPressed,
+      onWillPop: widget.onBackPress ?? onBackPressed,
+      child: Container(
+        color: widget.backgroundColor,
         child: SafeArea(
           child: Scaffold(
-            backgroundColor: theme.backgroundColor,
+            backgroundColor: widget.backgroundColor,
             bottomNavigationBar: widget.bottomNavigator,
             appBar: widget.appbar,
             body: widget.child,
           ),
-        ));
+        ),
+      ),
+    );
   }
 }

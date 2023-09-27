@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:money_controller/features/home/home_screen.dart';
 import 'package:money_controller/features/splash/splash_screen.dart';
 import 'package:money_controller/models/navigator_agruments/arguments_screen_model.dart';
 
@@ -6,12 +7,8 @@ class Routes {
 
   Routes._();
 
-  static const String splash = '/';
+  static const String splash = '/splash';
   static const String login = '/login';
-  static const String register = '/register';
-  static const String forgotPassword = '/forgot_pass';
-  static const String changePassword = '/change_pass';
-  static const String main = '/main';
   static const String home = '/home';
 
   static String _current = splash;
@@ -30,6 +27,11 @@ class Routes {
         return MaterialPageRoute(
           builder: (context) => const SplashScreen(),
           settings: const RouteSettings(name: splash),
+        );
+      case home:
+        return MaterialPageRoute(
+          builder: (context) => const HomeScreen(),
+          settings: const RouteSettings(name: home),
         );
       default:
         return MaterialPageRoute(settings: const RouteSettings(name: splash), builder: (_) => const SplashScreen());

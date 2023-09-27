@@ -8,31 +8,29 @@ import 'package:money_controller/core/blocs/authentication/authentication_state.
 import 'package:money_controller/core/utils/log_utils.dart';
 import 'package:money_controller/core/utils/utils_helper.dart';
 import 'package:money_controller/features/splash/splash_screen.dart';
-import 'package:money_controller/firebase_options.dart';
 import 'package:money_controller/repos/user_repository.dart';
 
 import 'core/src/app_colors.dart';
 import 'core/src/app_theme.dart';
 import 'core/utils/dimension.dart';
+import 'firebase_options.dart';
 import 'injector.dart';
 import 'route/page_routes.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  await init();
-
+void main() {
   runZonedGuarded(
-    () {
+    () async {
+      WidgetsFlutterBinding.ensureInitialized();
+      await Firebase.initializeApp(
+        options: DefaultFirebaseOptions.currentPlatform,
+      );
+      await init();
       runApp(const MyApp());
     },
     (error, stack) {
       LogUtils.e(message: error.toString());
     },
   );
-
 }
 
 class MyApp extends StatelessWidget {
@@ -75,7 +73,7 @@ class MyApp extends StatelessWidget {
 
   void _authenticationListener(BuildContext context, state) async {
     if (state is AuthenticationStateLoggedIn) {
-      UtilsHelper.popAllAndPushNamed(Routes.main);
+      UtilsHelper.popAllAndPushNamed(Routes.home);
       return;
     }
 

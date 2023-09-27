@@ -4,6 +4,7 @@ class AppColors {
   AppColors._();
 
   static const Color primary = Color(0xff190152);
+  static const Color primaryText = Color(0xff2f3640);
   static const Color white = Color(0xffffffff);
   static const Color black = Color(0xff000000);
   static const Color red = Color(0xffef3327);
@@ -19,4 +20,5 @@ class AppColors {
   static const Color textLabel = Color(0xff748aa5);
   static const Color textHint = Color(0xffcccdd4);
   static const Color greyMedium = Color(0xffe1e3e6);
+  static const Color orange = Color(0xffe0763c);
 }

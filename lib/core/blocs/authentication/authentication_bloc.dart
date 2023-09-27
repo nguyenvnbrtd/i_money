@@ -7,16 +7,18 @@ import 'authentication_event.dart';
 import 'authentication_state.dart';
 
 class AuthenticationBloc extends BaseBloc<AuthenticationEvent, AuthenticationState> {
-  final UserRepository _userRepository = it();
+  // final UserRepository _userRepository = it();
 
   AuthenticationBloc() : super(AuthenticationStateInitial()) {
     on<OnStartAuthentication>((event, emit) async {
-      final user = await _userRepository.getUser();
-      if (user != null) {
-        emit(AuthenticationStateLoggedIn(id: user.uid));
-      } else {
-        emit(AuthenticationStateNotLoggedIn());
-      }
+      emit(AuthenticationStateLoggedIn(id: 'user.uid'));
+      return;
+      // final user = await _userRepository.getUser();
+      // if (user != null) {
+      //   emit(AuthenticationStateLoggedIn(id: user.uid));
+      // } else {
+      //   emit(AuthenticationStateNotLoggedIn());
+      // }
     });
 
     on<AuthenticationEventLoggingIn>((event, emit) {

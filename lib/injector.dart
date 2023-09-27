@@ -9,7 +9,7 @@ final it = GetIt.instance;
 
 Future<void> init() async {
   // Repository
-  it.registerLazySingleton<UserRepository>(() => UserRepository());
+  // it.registerLazySingleton<UserRepository>(() => UserRepository());
 
   //device information
   await DeviceInfo.init();
