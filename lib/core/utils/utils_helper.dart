@@ -2,11 +2,10 @@ import 'package:encrypt/encrypt.dart' as Aes;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl.dart';
+import 'package:intl/intl.dart' as intl;
 import 'package:money_controller/core/blocs/authentication/authentication_bloc.dart';
 import 'package:money_controller/core/blocs/authentication/authentication_event.dart';
 import 'package:money_controller/models/navigator_agruments/arguments_screen_model.dart';
-
 import '../../injector.dart';
 import '../../route/page_routes.dart';
 import 'constants.dart';
@@ -18,23 +17,26 @@ class UtilsHelper {
 
   static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
-  /// Get width of a [Widget]
-  /// EX: UtilsHelper.getWidth(mainWidgetKey, 0); //mainWidgetKey is the key of the widget we want to get width
-  static double getWidth(GlobalKey keyOfWidget, double defaultValueIfNull) {
-    if (keyOfWidget.currentContext != null) {
-      return keyOfWidget.currentContext!.size != null ? keyOfWidget.currentContext!.size!.width : defaultValueIfNull;
-    }
-    return defaultValueIfNull;
+  /// Text height
+  static double getTextHeight(
+      {required String text,
+        required TextStyle textStyle,
+        required double maxWidthOfWidget,
+        double minWidthOfWidget = 0}) {
+    final textPainter = TextPainter(
+        textAlign: TextAlign.center, textDirection: TextDirection.ltr, text: TextSpan(text: text, style: textStyle))
+      ..layout(maxWidth: maxWidthOfWidget, minWidth: minWidthOfWidget);
+    return textPainter.height;
   }
 
-  /// Get height of a [Widget]
-  /// EX: UtilsHelper.getHeight(mainWidgetKey, 0);
-  static getHeight(GlobalKey keyOfWidget, double defaultValueIfNull) {
-    if (keyOfWidget.currentContext != null) {
-      return keyOfWidget.currentContext!.size != null ? keyOfWidget.currentContext!.size!.height : defaultValueIfNull;
-    }
-    return defaultValueIfNull;
+  /// Text Width
+  static double getTextWidth({required String text, required TextStyle textStyle}) {
+    final textPainter = TextPainter(
+        textAlign: TextAlign.center, textDirection: TextDirection.ltr, text: TextSpan(text: text, style: textStyle))
+      ..layout();
+    return textPainter.size.width;
   }
+
 
   static void copyStringToClipBoard({required String data}) async {
     final context = UtilsHelper.navigatorKey.currentContext;
@@ -115,36 +117,36 @@ class UtilsHelper {
   }
 
   static String formatMoney(double money) {
-    final oCcy = NumberFormat("#,##0", "vi_VN");
+    final oCcy = intl.NumberFormat("#,##0", "vi_VN");
     return oCcy.format(money);
   }
 
   static String formatTime(DateTime date) {
-    DateFormat format = DateFormat(Constants.DATE_TIME_FORMAT);
+    intl.DateFormat format = intl.DateFormat(Constants.DATE_TIME_FORMAT);
     return format.format(date);
   }
 
   static String formatDate(DateTime date) {
-    DateFormat format = DateFormat(Constants.DATE_FORMAT);
+    intl.DateFormat format = intl.DateFormat(Constants.DATE_FORMAT);
     return format.format(date);
   }
 
   static String getCurrentDateTime() {
     final time = DateTime.now();
-    DateFormat format = DateFormat(Constants.DATE_TIME_FORMAT);
+    intl.DateFormat format = intl.DateFormat(Constants.DATE_TIME_FORMAT);
     return format.format(time);
   }
 
   static String getCurrentTime() {
     final time = DateTime.now();
-    DateFormat format = DateFormat(Constants.TIME_FORMAT);
+    intl.DateFormat format = intl.DateFormat(Constants.TIME_FORMAT);
     return format.format(time);
   }
 
   static String getTimeFromString(String date) {
     try {
-      DateFormat format = DateFormat(Constants.HOUR_MINUTES_FORMAT);
-      DateTime time = DateFormat(Constants.DATE_TIME_FORMAT).parse(date);
+      intl.DateFormat format = intl.DateFormat(Constants.HOUR_MINUTES_FORMAT);
+      DateTime time = intl.DateFormat(Constants.DATE_TIME_FORMAT).parse(date);
       return format.format(time);
     } catch (e) {
       return 'none';
@@ -153,8 +155,8 @@ class UtilsHelper {
 
   static String getDateFromString(String date) {
     try {
-      DateFormat format = DateFormat(Constants.DATE_FORMAT);
-      DateTime time = DateFormat(Constants.DATE_TIME_FORMAT).parse(date);
+      intl.DateFormat format = intl.DateFormat(Constants.DATE_FORMAT);
+      DateTime time = intl.DateFormat(Constants.DATE_TIME_FORMAT).parse(date);
       return format.format(time);
     } catch (e) {
       return 'none';
@@ -162,7 +164,7 @@ class UtilsHelper {
   }
 
   static String timestampToDateString(int? timestamp, {String formatTemplate = Constants.DATE_TIME_FORMAT}) {
-    DateFormat format = DateFormat(formatTemplate);
+    intl.DateFormat format = intl.DateFormat(formatTemplate);
     return format.format(DateTime.fromMillisecondsSinceEpoch((timestamp ?? 0) * 1000));
   }
 
@@ -173,8 +175,8 @@ class UtilsHelper {
   // minute
   static int getDiffFromTwo(String h1, String h2) {
     try {
-      DateTime hour1 = DateFormat(Constants.DATE_TIME_FORMAT).parse(h1);
-      DateTime hour2 = DateFormat(Constants.DATE_TIME_FORMAT).parse(h2);
+      DateTime hour1 = intl.DateFormat(Constants.DATE_TIME_FORMAT).parse(h1);
+      DateTime hour2 = intl.DateFormat(Constants.DATE_TIME_FORMAT).parse(h2);
 
       return hour1.difference(hour2).inMinutes;
     } catch (e) {
