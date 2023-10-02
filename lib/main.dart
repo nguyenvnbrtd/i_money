@@ -17,20 +17,20 @@ import 'firebase_options.dart';
 import 'injector.dart';
 import 'route/page_routes.dart';
 
-void main() {
-  runZonedGuarded(
-    () async {
+void main() async {
+  // runZonedGuarded(
+  //   () async {
       WidgetsFlutterBinding.ensureInitialized();
       await Firebase.initializeApp(
         options: DefaultFirebaseOptions.currentPlatform,
       );
       await init();
       runApp(const MyApp());
-    },
-    (error, stack) {
-      LogUtils.e(message: error.toString());
-    },
-  );
+    // },
+    // (error, stack) {
+    //   LogUtils.e(message: error.toString());
+    // },
+  // );
 }
 
 class MyApp extends StatelessWidget {

@@ -39,6 +39,7 @@ class TransactionItem extends StatelessWidget {
                 decoration: BoxDecoration(color: item.type.mainColor.lighter, borderRadius: BorderRadius.circular(DeviceDimension.padding)),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Icon(item.type.icon, color: Colors.white),
                     Container(constraints: BoxConstraints(maxWidth: moneySize),child: Text('${UtilsHelper.formatMoney(item.money.toDouble())} đ', style: AppTextStyles.titleMediumW700.copyWith(color: item.type.moneyColor), textAlign: TextAlign.end, overflow: TextOverflow.visible)),
@@ -53,7 +54,7 @@ class TransactionItem extends StatelessWidget {
             children: [
               Expanded(child: Text(item.content, style: AppTextStyles.bodyMediumW400.copyWith(color: item.type.textColor))),
               SpaceHorizontal(width: DeviceDimension.padding),
-              Text(UtilsHelper.timestampToDateString(item.time, formatTemplate: 'dd/MM/yyyy hh:mm a'), style: AppTextStyles.bodyMediumW400.copyWith(color: item.type.textColor)),
+              Text(UtilsHelper.timestampToDateString(item.time, formatTemplate: 'dd/MM/yyyy HH:mm'), style: AppTextStyles.bodyMediumW400.copyWith(color: item.type.textColor)),
             ],
           ),
         ],

@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "682946790076",
+    "firebase_url": "https://i-money-controller-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "i-money-controller",
     "storage_bucket": "i-money-controller.appspot.com"
   },
@@ -12,7 +13,20 @@
           "package_name": "com.example.money_controller"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "682946790076-4thh8d6jifnf51ggh7qtl1aks9c2gion.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.money_controller",
+            "certificate_hash": "829702232679ba9dd7c61e124bdc0376e1871546"
+          }
+        },
+        {
+          "client_id": "682946790076-9t1r97qfhr88r4vvrd0s3rjaql18k3q4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyD6zXeNLWJtvGIzPoiiOLomqS4JQTodlq4"
@@ -20,7 +34,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "682946790076-9t1r97qfhr88r4vvrd0s3rjaql18k3q4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "682946790076-385llhell603p1bee7fvc1prnh3ucvcv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.moneyController"
+              }
+            }
+          ]
         }
       }
     }

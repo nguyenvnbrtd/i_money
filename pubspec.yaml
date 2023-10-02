@@ -48,7 +48,7 @@ dependencies:
 
   #device:
   app_settings: ^4.1.8
-  device_info_plus: ^9.0.3
+  device_info_plus: ^9.0.1
   #GPS
   geolocator: ^10.1.0
   #internet
@@ -65,6 +65,7 @@ dependencies:
   permission_handler: ^10.1.0
   fluttertoast: ^8.1.1
   google_fonts: ^6.1.0
+  google_sign_in: ^6.1.5
 
 dev_dependencies:
   flutter_test:
