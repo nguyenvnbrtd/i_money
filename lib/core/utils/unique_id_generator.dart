@@ -1,6 +1,6 @@
 import 'package:uuid/uuid.dart';
 
-class UniqueIdGenerator{
+class UniqueIdGenerator {
   static final UniqueIdGenerator _instance = UniqueIdGenerator._internal();
 
   factory UniqueIdGenerator() => _instance;

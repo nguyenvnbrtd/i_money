@@ -39,5 +39,6 @@ abstract class BaseRepository<T extends BaseModel>{
     return event.docs.map((e) => sample.fromJson(e.data()) as T).toList()..sort(sort);
   }
 
+  // a.compareTo(b)
   int sort(T a, T b);
 }

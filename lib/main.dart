@@ -18,19 +18,19 @@ import 'injector.dart';
 import 'route/page_routes.dart';
 
 void main() async {
-  // runZonedGuarded(
-  //   () async {
+  runZonedGuarded(
+    () async {
       WidgetsFlutterBinding.ensureInitialized();
       await Firebase.initializeApp(
         options: DefaultFirebaseOptions.currentPlatform,
       );
       await init();
       runApp(const MyApp());
-    // },
-    // (error, stack) {
-    //   LogUtils.e(message: error.toString());
-    // },
-  // );
+    },
+    (error, stack) {
+      LogUtils.e(message: error.toString());
+    },
+  );
 }
 
 class MyApp extends StatelessWidget {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:money_controller/features/home/home_screen.dart';
+import 'package:money_controller/features/login/login_screen.dart';
 import 'package:money_controller/features/splash/splash_screen.dart';
 import 'package:money_controller/models/navigator_agruments/arguments_screen_model.dart';
 
@@ -32,6 +33,11 @@ class Routes {
         return MaterialPageRoute(
           builder: (context) => const HomeScreen(),
           settings: const RouteSettings(name: home),
+        );
+      case login:
+        return MaterialPageRoute(
+          builder: (context) => const LoginScreen(),
+          settings: const RouteSettings(name: login),
         );
       default:
         return MaterialPageRoute(settings: const RouteSettings(name: splash), builder: (_) => const SplashScreen());

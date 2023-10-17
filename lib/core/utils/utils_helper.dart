@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart' as intl;
 import 'package:money_controller/core/blocs/authentication/authentication_bloc.dart';
 import 'package:money_controller/core/blocs/authentication/authentication_event.dart';
+import 'package:money_controller/core/utils/recase.dart';
 import 'package:money_controller/models/navigator_agruments/arguments_screen_model.dart';
 import '../../injector.dart';
 import '../../route/page_routes.dart';
@@ -230,6 +231,44 @@ class UtilsHelper {
   static bool contain(String a, String b) {
     if (a.toUpperCase().contains(b.toUpperCase())) {
       return true;
+    }
+    return false;
+  }
+
+  static dynamic getJsonValue(Map<String, dynamic> json, List<String> keys, {bool isCheckAllCase = true}) {
+    for (int index = 0; index < keys.length; index++) {
+      String key = keys[index];
+      // convert key theo các trường hợp key
+      if (isCheckAllCase) {
+        Set<String> findByKeys = {key};
+        findByKeys.add(key.camelCaseChange);
+        findByKeys.add(key.snakeCase);
+        findByKeys.add(key.pascalCase);
+        findByKeys.add(key.paramCaseChange);
+        for (var element in findByKeys) {
+          if (json.containsKey(element)) {
+            return json[element];
+          }
+        }
+      } else {
+        return json[key];
+      }
+    }
+    return null;
+  }
+
+  static bool jsonKeyExist(Map<String, dynamic> json, String key, {bool isCheckAllCase = true}) {
+    Set<String> keys = {key};
+    if (isCheckAllCase) {
+      keys.add(key.camelCaseChange);
+      keys.add(key.snakeCase);
+      keys.add(key.pascalCase);
+      keys.add(key.paramCaseChange);
+    }
+    for (var element in keys) {
+      if (json.containsKey(element)) {
+        return true;
+      }
     }
     return false;
   }

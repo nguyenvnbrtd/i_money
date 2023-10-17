@@ -22,12 +22,7 @@ class AuthenticationBloc extends BaseBloc<AuthenticationEvent, AuthenticationSta
             await _googleUserRepository.logIn();
             _checkLogIn(
               onFail: () {
-                DialogUtils.showPrimaryDialog(
-                  message: 'Login fail. \nTry to login again?',
-                  onConfirm: () {
-                    add(OnStartAuthentication());
-                  },
-                );
+                emit(AuthenticationStateNotLoggedIn());
               },
             );
           },

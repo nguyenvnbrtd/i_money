@@ -22,33 +22,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    final items = <Transaction>[
-      Transaction.now(
-          title: 'tesaksjd klajsldkj alskdalksdlmas dasd assas',
-          content: 'nashsadja sdas;d ;asm,d;a,sd;a,sd;s jakshdkjashd kjahd kajdnkajndkajndakjndkajsnakjsdn aksndkasndkajnsd kansdka nsdkandlasdjlasjdlkajsllaksjdlakjsdlajksldkajlsdjals kjalskjalsjdlaks asd asdasd s',
-          type: TransactionType.income,
-          money: 245643455655451231),
-      Transaction.now(title: 'tessas', content: 'nashsadj', type: TransactionType.income, money: 245643455655451231),
-      Transaction.now(title: 'tessas', content: 'nashsadj', type: TransactionType.outcome, money: 245643455655451231),
-      Transaction.now(title: 'tessas', content: 'nashsadj', type: TransactionType.income, money: 245643455655451231),
-      Transaction.now(title: 'tessas', content: 'nashsadj', type: TransactionType.outcome, money: 245643455655451231),
-      Transaction.now(title: 'tessas', content: 'nashsadj', type: TransactionType.income, money: 2052505),
-      Transaction.now(title: 'tessas', content: 'nashsadj', type: TransactionType.outcome, money: 2052505),
-      Transaction.now(title: 'tessas', content: 'nashsadj', type: TransactionType.income, money: 2052505),
-      Transaction.now(title: 'tessas', content: 'nashsadj', type: TransactionType.outcome, money: 2052505),
-      Transaction.now(title: 'tessas', content: 'nashsadj', type: TransactionType.income, money: 2052505),
-      Transaction.now(title: 'tessas', content: 'nashsadj', type: TransactionType.outcome, money: 2052505),
-      Transaction.now(title: 'tessas', content: 'nashsadj', type: TransactionType.income, money: 2052505),
-      Transaction.now(title: 'tessas', content: 'nashsadj', type: TransactionType.outcome, money: 2052505),
-      Transaction.now(title: 'tessas', content: 'nashsadj', type: TransactionType.income, money: 2052505),
-      Transaction.now(title: 'tessas', content: 'nashsadj', type: TransactionType.outcome, money: 2052505),
-      Transaction.now(title: 'tessas', content: 'nashsadj', type: TransactionType.income, money: 2052505),
-      Transaction.now(title: 'tessas', content: 'nashsadj', type: TransactionType.outcome, money: 2052505),
-      Transaction.now(title: 'tessas', content: 'nashsadj', type: TransactionType.income, money: 2052505),
-      Transaction.now(title: 'tessas', content: 'nashsadj', type: TransactionType.outcome, money: 2052505),
-      Transaction.now(title: 'tessas', content: 'nashsadj', type: TransactionType.income, money: 2052505),
-      Transaction.now(title: 'tessas', content: 'nashsadj', type: TransactionType.outcome, money: 2052505),
-    ];
 
     return OriginScreen(
       backgroundColor: AppColors.white,
